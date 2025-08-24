@@ -1,3 +1,14 @@
+function getValueInt(id) {
+    const value = parseInt(document.getElementById(id).value);
+    return value;
+}
+function getValue(id) {
+    const value = document.getElementById(id).value;
+    return value;
+}
+
+
+
 
 //add_money_features
 document.getElementById('add_money_btn')
@@ -9,9 +20,18 @@ document.getElementById('add_money_btn')
             const dummy_pin = 1001;
 
             const bank = document.getElementById('select_bank').value;
-            const acc_number = document.getElementById('ac_number').value;
-            const amount = parseInt(document.getElementById('add_amount').value);
-            const pin = document.getElementById('add_pin').value;
+
+
+
+            // const acc_number = document.getElementById('ac_number').value;
+            const acc_number = getValue("ac_number");
+
+            // const amount = parseInt(document.getElementById('add_amount').value);
+            const amount = getValueInt("add_amount");
+
+
+            // const pin = document.getElementById('add_pin').value;
+            const pin = getValueInt("add_pin");
 
             const available_money = parseInt(document.getElementById('available_money').innerText);
 
@@ -20,11 +40,11 @@ document.getElementById('add_money_btn')
                 alert("Please  enter a valid account number");
                 return;
             }
-            if (pin != dummy_pin) {
+            if (pin !== dummy_pin) {
                 alert('Please enter a valid pin')
                 return;
             }
-      
+
 
 
             const new_money = available_money + amount;
@@ -61,8 +81,7 @@ document.getElementById('cashout_btn')
                 alert('Please enter a valid pin')
                 return;
             }
-            if(amount>available_money)
-            {
+            if (amount > available_money) {
                 alert('Insufficient Balance');
                 return;
             }
@@ -80,6 +99,30 @@ document.getElementById('cashout_btn')
 
 
 
+// toggle function
+function displayYou(id) {
+    const forms = document.getElementsByClassName("common_form");
+    for (const form of forms) {
+        form.style.display = 'none'
+    }
+
+    document.getElementById(id).style.display = 'block'
+}
+
+//active color toggle function
+function showActive(id) {
+    const cardBtns = document.getElementsByClassName('card_btn');
+    for (const btn of cardBtns) {
+        btn.classList.remove("border-[#0874f2]", "bg-[#0874f20d]")
+        btn.classList.add("border-[#0808081a]")
+    }
+
+
+    document.getElementById(id).classList.remove("border-[#0808081a]")
+    document.getElementById(id).classList.add("border-[#0874f2]", "bg-[#0874f20d]")
+}
+
+
 
 
 
@@ -87,14 +130,47 @@ document.getElementById('cashout_btn')
 // toggling features
 document.getElementById('add_money_card')
     .addEventListener('click', function () {
-        document.getElementById('cashout_parent').style.display = 'none';
-        document.getElementById('add_money_parent').style.display ='block'
-    })
+
+        displayYou('add_money_parent');
+        showActive('add_money_card');
+})
 
 document.getElementById('cashout_card')
     .addEventListener('click', function () {
-        document.getElementById('add_money_parent').style.display = 'none';
-           document.getElementById('cashout_parent').style.display = 'block';
+
+        displayYou('cashout_parent');
+        showActive('cashout_card');
+
+    })
+
+document.getElementById('transfer_card')
+    .addEventListener('click', function () {
+
+        displayYou('transfer_money_parent');
+        showActive('transfer_card');
+    })
+
+
+document.getElementById('bonus_card')
+    .addEventListener('click', function () {
+
+        displayYou('get_bonus_parent');
+        showActive('bonus_card');
+
+    })
+document.getElementById('paybill_card')
+    .addEventListener('click', function () {
+
+        displayYou('paybill_parent');
+        showActive('paybill_card');
+
+    })
+document.getElementById('transaction_card')
+    .addEventListener('click', function () {
+
+        displayYou('transaction_parent');
+        showActive('transaction_card');
+
     })
 
 

@@ -54,37 +54,37 @@
         <div class=" min-h-[200px] mt-6 grid grid-cols-3 gap-4 p-3">
 
 
-            <div id="add_money_card" class=" text-center p-3 border-2 border-[#0808081a] rounded-xl">
+            <div id="add_money_card" class="card_btn text-center p-3 border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/wallet1.png" alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Add Money</h2>
             </div>
 
 
-            <div id="cashout_card" class="text-center p-3 border-2 border-[#0808081a] rounded-xl">
+            <div id="cashout_card" class="card_btn text-center p-3 border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/send1.png" alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Cashout</h2>
             </div>
 
 
-            <div class="text-center p-3  border-2 border-[#0808081a] rounded-xl">
+            <div id="transfer_card" class="card_btn text-center p-3  border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/money1.png  " alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Transfer Money</h2>
             </div>
 
 
-            <div class="text-center p-3  border-2 border-[#0808081a] rounded-xl">
+            <div id="bonus_card" class="card_btn text-center p-3  border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/bonus1.png" alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Get Bonus</h2>
             </div>
 
 
-            <div class="text-center p-3  border-2 border-[#0808081a] rounded-xl">
+            <div id="paybill_card" class="card_btn text-center p-3  border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/purse1.png" alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Pay Bill</h2>
             </div>
 
 
-            <div class="text-center p-3  border-2 border-[#0808081a] rounded-xl">
+            <div id="transaction_card" class="card_btn text-center p-3  border-2 border-[#0808081a] rounded-xl">
                 <img src="assets/transaction1.png" alt="" class="mx-auto">
                 <h2 class="text-[#08080880]">Transactions</h2>
             </div>
@@ -98,7 +98,7 @@
 
     <div class="form max-w-lg mx-auto p-5">
         <!-- add money form -->
-        <div id="add_money_parent">
+        <div class="common_form" id="add_money_parent">
             <h1 class="font-bold pl-5 my-6">Add Money</h1>
             <form id="add_form" action="" class="bg-white rounded-2xl p-8 w">
                 <label class="font-semibold">Select a Bank</label>
@@ -139,7 +139,7 @@
         </div>
 
         <!-- cashout form -->
-        <div id="cashout_parent" style="display: none;">
+        <div class="common_form" id="cashout_parent" style="display: none;">
             <h1 class="font-bold pl-5 my-6">Cash Out</h1>
             <form id="cashout_form" action="" class="bg-white rounded-2xl p-8 w">
                 <div class="flex flex-col gap-5 mt-3">
@@ -170,13 +170,37 @@
                 </button>
             </form>
         </div>
+
+        <!-- transfer_money form -->
+        <div class="common_form" id="transfer_money_parent" style="display: none;">
+
+            <h1 class="font-bold pl-5 my-6">Transfer Money</h1>
+        </div>
+        <!-- get bonus form -->
+        <div class="common_form" id="get_bonus_parent" style="display: none;">
+
+            <h1 class="font-bold pl-5 my-6"> Get Bonus</h1>
+        </div>
+
+        <!-- pay bill form -->
+        <div class="common_form" id="paybill_parent" style="display: none;">
+
+            <h1 class="font-bold pl-5 my-6"> Pay Bill</h1>
+        </div>
+
+        <!-- transaction form -->
+        <div class="common_form" id="transaction_parent" style="display: none;">
+
+            <h1 class="font-bold pl-5 my-6">Transactions</h1>
+        </div>
+
     </div>
 
 
 
 
 
-    </div>
+
 
 
 </body>
