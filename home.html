@@ -98,7 +98,7 @@
 
     <div class="form max-w-lg mx-auto p-5">
         <!-- add money form -->
-        <div class="common_form" id="add_money_parent">
+        <div class="common_form" id="add_money_parent" >
             <h1 class="font-bold pl-5 my-6">Add Money</h1>
             <form id="add_form" action="" class="bg-white rounded-2xl p-8 w">
                 <label class="font-semibold">Select a Bank</label>
@@ -191,10 +191,22 @@
         <!-- transaction form -->
         <div class="common_form" id="transaction_parent" style="display: none;">
 
-            <h1 class="font-bold pl-5 my-6">Transactions</h1>
+            <div class="flex justify-between items-center">
+                <h1 class="font-bold pl-5 my-6">Transactions</h1>
+                <p class="my-6 font-normal text-[14px] text-[#08080880]">View All</p>
+            </div>
+
+            <div id="transaction_container">
+                
+            </div>
+
         </div>
 
+       
+
     </div>
+
+
 
 
 

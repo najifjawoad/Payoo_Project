@@ -7,6 +7,8 @@ function getValue(id) {
     return value;
 }
 
+const transactionData = [];
+
 
 
 
@@ -36,6 +38,15 @@ document.getElementById('add_money_btn')
             const available_money = parseInt(document.getElementById('available_money').innerText);
 
 
+
+            if (bank === "Select Bank") {
+                alert("please select a bank ");
+                return;
+            }
+            if (amount <= 0) {
+                alert("Please  enter a valid amount");
+                return;
+            }
             if (acc_number.length != 11) {
                 alert("Please  enter a valid account number");
                 return;
@@ -54,6 +65,16 @@ document.getElementById('add_money_btn')
 
             const form = document.getElementById('add_form');
             form.reset();
+
+
+            const data =
+            {
+                name: 'Add Money',
+                date: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
+
+
         })
 
 // cashout features
@@ -81,7 +102,7 @@ document.getElementById('cashout_btn')
                 alert('Please enter a valid pin')
                 return;
             }
-            if (amount > available_money) {
+            if (amount <= 0 || amount > available_money) {
                 alert('Insufficient Balance');
                 return;
             }
@@ -95,7 +116,52 @@ document.getElementById('cashout_btn')
             const form = document.getElementById('cashout_form');
             form.reset();
 
+            const data =
+            {
+                name: 'Cash Out',
+                date: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
+            console.log(data);
+
         })
+
+
+
+
+
+// transaction features
+document.getElementById('transaction_card')
+    .addEventListener('click', function () {
+        const transaction_container = document.getElementById('transaction_container');
+        transaction_container.innerText = ''
+
+        for (const data of transactionData) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+            <div class="flex justify-between items-center bg-white rounded-xl p-3">
+                    <div class="flex items-center">
+
+                        <div class="border- p-3 rounded-full bg-[#0808080d]">
+                            <img src="assets/wallet1.png" alt="" class="mx-auto">
+                        </div>
+                        <div class="ml-5">
+                            <h1>${data.name}</h1>
+                            <p>${data.date}
+                            </p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                </div>
+                <br> 
+            
+            `
+            transaction_container.appendChild(div);
+
+        }
+
+    })
 
 
 
@@ -133,7 +199,7 @@ document.getElementById('add_money_card')
 
         displayYou('add_money_parent');
         showActive('add_money_card');
-})
+    })
 
 document.getElementById('cashout_card')
     .addEventListener('click', function () {
